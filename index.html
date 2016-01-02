@@ -15,22 +15,62 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
         <script>
             $(document).ready(function(){
+
+                checkForFragmentId();
                 $("#projects").mouseup(function(){
                     $.ajax({url: "Projekty.html", success: function(result){
                         $("#content").html(result);
+                        alert("projekty");
                     }});
                 });
                 $("#certificates").mouseup(function(){
                     $.ajax({url: "Certyfikaty.html", success: function(result){
                         $("#content").html(result);
+                        alert("certyfikaty");
                     }});
                 });
                 $("#contact").mouseup(function(){
                     $.ajax({url: "Kontakt.html", success: function(result){
                         $("#content").html(result);
+                        alert("kontakt");
                     }});
                 });
 
+                function checkForFragmentId(){
+                    if(window.location.hash) {
+                            var hash = window.location.hash.substring(1);
+                            
+                            if(hash === "certificates")
+                            {
+                                $.ajax({url: "Certyfikaty.html", success: function(result){
+                                    $("#content").html(result);
+                                    alert("projekty");
+                                }});
+                                $("#certificates").addClass("active");
+                            }
+                            else if (hash === "contact")
+                            {
+                                $.ajax({url: "Kontakt.html", success: function(result){
+                                    $("#content").html(result);
+                                    alert("projekty");
+                                }});
+                                $("#contact").addClass("active");
+                            }
+                            else if(hash === "projects")
+                            {
+                                $.ajax({url: "Projekty.html", success: function(result){
+                                    $("#content").html(result);
+                                    alert("projekty");
+                                }});
+                                $("#projects").addClass("active");
+                            }
+                            
+
+                        } else {
+                            changeContent("Projekty");
+                            $("#projects").addClass("active");
+                        }
+                }
             });
         </script>
     </head>
@@ -170,8 +210,6 @@ public static class Complex
                 e.preventDefault();
             });
         </script>
-
-        <script src="js/loadpage.js"></script>
         <script src="js/gallery.js"></script>
         <script>$(document).ready(function() {
           $('pre code').each(function(i, block) {
