@@ -13,13 +13,11 @@ function navigationinit()
     $("#certificates").mouseup(function(){
         $.ajax({url: "Certyfikaty.html", success: function(result){
             $("#content").html(result);
-            alert("certyfikaty");
         }});
     });
     $("#contact").mouseup(function(){
         $.ajax({url: "Kontakt.html", success: function(result){
             $("#content").html(result);
-            alert("kontakt");
         }});
     });
 }
