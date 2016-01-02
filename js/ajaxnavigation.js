@@ -10,7 +10,6 @@ function navigationinit()
             });
             window.location.hash="projects";
             InitGallery();
-            window.setInterval(StartGallery,5000);
         }});
     });
     $("#certificates").mouseup(function(){
