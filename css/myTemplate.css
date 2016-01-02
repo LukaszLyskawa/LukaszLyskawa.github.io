@@ -107,8 +107,9 @@ body {
     left:0;
 }
 .header>ul>li{
+    height: 60px;
     padding:0px;
-    line-height: 35px;
+    line-height: 60px;
 }
 .header>ul>li>a{
     line-height: 35px;
@@ -129,4 +130,7 @@ body {
 }
 .navbar-default .navbar-nav > li > a:hover{
 color: #fff;  /*Sets the text hover color on navbar*/
+}
+.header>ul>li>a>img{
+    vertical-align: baseline;
 }
