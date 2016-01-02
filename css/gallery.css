@@ -5,7 +5,7 @@ img {
 .galleryswitcher{
   padding:0px;
   margin:0px;
-  transform: translate(0,-101%);
+  transform: translate(0,-100%);
 }
 .galleryhidden{
   opacity:0;
