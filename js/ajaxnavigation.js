@@ -10,19 +10,17 @@ function navigationinit()
             });
             window.location.hash="projects";
             InitGallery();
-            intervalhandler=window.setInterval(StartGallery,5000);
+            window.setInterval(StartGallery,5000);
         }});
     });
     $("#certificates").mouseup(function(){
         $.ajax({url: "Certyfikaty.html", success: function(result){
-            window.clearInterval(intervalhandler);
             $("#content").html(result);
             window.location.hash="certificates";
         }});
     });
     $("#contact").mouseup(function(){
         $.ajax({url: "Kontakt.html", success: function(result){
-            window.clearInterval(intervalhandler);
             $("#content").html(result);
             window.location.hash="contact";
         }});
@@ -36,7 +34,7 @@ function checkForFragmentId(){
         {
             $.ajax({url: "Certyfikaty.html", success: function(result){
                 $("#content").html(result);
-                window.clearInterval(intervalhandler);
+
             }});
             $("#certificates").addClass("active");
         }
@@ -44,7 +42,7 @@ function checkForFragmentId(){
         {
             $.ajax({url: "Kontakt.html", success: function(result){
                 $("#content").html(result);
-                window.clearInterval(intervalhandler);
+
             }});
             $("#contact").addClass("active");
         }
@@ -56,7 +54,6 @@ function checkForFragmentId(){
                     hljs.highlightBlock(block);
                 });
             }});
-            window.clearInterval(intervalhandler);
             InitGallery();
             intervalhandler=window.setInterval(StartGallery,5000);            
             $("#projects").addClass("active");
@@ -67,7 +64,6 @@ function checkForFragmentId(){
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });
-                window.clearInterval(intervalhandler);
                 InitGallery();
                 intervalhandler=window.setInterval(StartGallery,5000);
         }});
