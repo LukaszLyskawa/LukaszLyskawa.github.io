@@ -14,7 +14,26 @@
         <script src="./js/ajaxfunc.js"></script>
         <link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/vs.min.css' rel='stylesheet'/>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
-        
+        <script>
+            $(document).ready(function(){
+                $("#projects").mouseup(function(){
+                    $.ajax({url: "Projekty.html", success: function(result){
+                        $("#content").html(result);
+                    }});
+                });
+                $("#certificates").mouseup(function(){
+                    $.ajax({url: "Certyfikaty.html", success: function(result){
+                        $("#content").html(result);
+                    }});
+                });
+                $("#contact").mouseup(function(){
+                    $.ajax({url: "Kontakt.html", success: function(result){
+                        $("#content").html(result);
+                    }});
+                });
+
+            });
+        </script>
     </head>
     <body>
         <div class="navbar-fixed-top container-fluid header noselect" style="background-color: #fff">
@@ -48,9 +67,9 @@
 
               <div id="navbar" class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                  <li><a id="projects" class="sliding-middle-out" onmouseup="changeContent('Projekty')">Projekty</a></li>
-                  <li><a id="certificates" class="sliding-middle-out" onmouseup="changeContent('Certyfikaty')">Certyfikaty</a></li>
-                  <li><a id="contact" class="sliding-middle-out" onmouseup="changeContent('Kontakt')">Kontakt</a></li>
+                  <li><a id="projects" class="sliding-middle-out">Projekty</a></li>
+                  <li><a id="certificates" class="sliding-middle-out">Certyfikaty</a></li>
+                  <li><a id="contact" class="sliding-middle-out">Kontakt</a></li>
                 </ul>
               </div>
           </div>
