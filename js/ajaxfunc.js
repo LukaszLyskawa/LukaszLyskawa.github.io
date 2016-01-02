@@ -1,9 +1,9 @@
 function changeContent(file){
 $.ajax({url: "Kontakty.html", success: function(result){
         $("#content").html(result);
-    }}, fail: function(){
+    }, fail: function(){
         alert("ajaxfailed");
-    });
+    }});
 //     if (file == "") {
 //         $("#content").html = "";
 //         return;
