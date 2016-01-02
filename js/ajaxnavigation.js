@@ -43,19 +43,20 @@ function checkForFragmentId(){
         {
             $.ajax({url: "Projekty.html", success: function(result){
                 $("#content").html(result);
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
             }});
-            $('pre code').each(function(i, block) {
-                hljs.highlightBlock(block);
-            });
+            
             $("#projects").addClass("active");
         }
     } else {
         $.ajax({url: "Projekty.html", success: function(result){
                 $("#content").html(result);
-            }});
-        $('pre code').each(function(i, block) {
-                hljs.highlightBlock(block);
-            });
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+        }});
         $("#projects").addClass("active");
     }
 }
