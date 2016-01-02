@@ -35,8 +35,8 @@
                         alert("kontakt");
                     }});
                 });
-
-                function checkForFragmentId(){
+            });
+            function checkForFragmentId(){
                     if(window.location.hash) {
                             var hash = window.location.hash.substring(1);
                             
@@ -67,11 +67,13 @@
                             
 
                         } else {
-                            changeContent("Projekty");
+                            $.ajax({url: "Projekty.html", success: function(result){
+                                    $("#content").html(result);
+                                    alert("projekty");
+                                }});
                             $("#projects").addClass("active");
                         }
                 }
-            });
         </script>
     </head>
     <body>
