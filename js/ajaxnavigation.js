@@ -31,9 +31,6 @@ function checkForFragmentId(){
         {
             $.ajax({url: "Certyfikaty.html", success: function(result){
                 $("#content").html(result);
-                $('pre code').each(function(i, block) {
-                    hljs.highlightBlock(block);
-                });  
             }});
             $("#certificates").addClass("active");
         }
