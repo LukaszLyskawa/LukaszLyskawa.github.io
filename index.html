@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Łukasz Łyskawa - Portfolio</title>
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/bootstrap-theme.css">
+        <link rel="stylesheet" href="./css/myTemplate.css">
+        <link rel="stylesheet" href="./css/SyntaxHighlighter.css">
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu&subset=latin-ext' rel='stylesheet' type='text/css'>
+        <script src="./js/jquery-1.11.3.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <script src="./js/ajaxfunc.js"></script>
+        <link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/vs.min.css' rel='stylesheet'/>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+        <script>$(document).ready(function() {
+          $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });</script>
+    </head>
+    <body>
+        <div class="navbar-fixed-top container-fluid header noselect" style="background-color: #fff">
+            <ul class="nav navbar-nav navbar-collapse collapse">
+                <li><a href="https://pl.linkedin.com/in/łukasz-łyskawa-569021b3">
+                        <img width="20" height="20" class="img-responsive" src="img/LinkedIn-Google-Plus-Profile-Pic-01.png"></a></li>
+                <li><a href="/"><img  height="20" src="img/cv-pdf.png"></a></li>
+                <li><a href="/"><img  height="20" src="img/cv-doc.png"></a></li>
+                <li><a href="https://github.com/LukaszLyskawa"><img width="20" height="20" src="img/GitHub-Mark.png"></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right navbar-collapse collapse black">
+                <li><a href="mailto:lukasz@lyskawa.pl"><span class="glyphicon glyphicon-envelope">&nbsp;</span>lukasz@lyskawa.pl</a></li>
+                <li class="navbar-text"><span class="glyphicon glyphicon-phone">&nbsp;</span>607-111-103</li>
+            </ul>
+        </div>
+        <nav class="navbar navbar-fixed-top navbar-default noselect">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        Łukasz Łyskawa
+                        <div class="navbar-collapse collapse">Programista C#</div>
+                    </div>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                </div>
+
+              <div id="navbar" class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                  <li><a id="projects" class="sliding-middle-out" onmouseup="changeContent('Projekty')">Projekty</a></li>
+                  <li><a id="certificates" class="sliding-middle-out" onmouseup="changeContent('Certyfikaty')">Certyfikaty</a></li>
+                  <li><a id="contact" class="sliding-middle-out" onmouseup="changeContent('Kontakt')">Kontakt</a></li>
+                </ul>
+              </div>
+          </div>
+        </nav>
+        <div class="content" id="content">
+            <div class="jumbotron">
+                <h1>Team Randomizer</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <h3>Technologie:</h3>
+                    <h2>
+                        <ul class="list-inline">
+                            <li>C#</li>
+                            <li>WPF</li>
+                            <li>MVVM</li>
+                        </ul>
+                    </h2>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="col-md-6" style="padding: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                    <div class="col-md-6" style="padding: 10px;"><img class="img-responsive center-block" style="max-height: 400px;" src="img/placeholder.jpg"></div>
+                    <div class="col-md-8 col-md-offset-2" style="text-align: left; padding: 10px;">
+                    <pre>
+                        <code class="c#" style="max-height: 500px;">
+public static class Complex
+{
+    private static IEnumerable&lt;GroupSetting&gt; _groups;
+    private static IEnumerable&lt;SummonerData&gt; _summonerData;
+    public async static Task&lt;IEnumerable&lt;SummonerData&gt;&gt; Shuffle(
+        IEnumerable&lt;SummonerData&gt; Summoners, 
+        IEnumerable&lt;GroupSetting&gt; Groups, TimeSpan timeout)
+    {
+        _summonerData = Summoners;
+        _groups = Groups;
+        Summoners = (await Simple.ShuffleListAsync(Summoners, timeout))
+                                 .OfType&lt;SummonerData&gt;()
+                                 .ToList();
+        return CreateTeams(DivideSummoner(Summoners));
+    }
+
+    private static IEnumerable&lt;SummonerData&gt; CreateTeams(List&lt;List&lt;SummonerData&gt;&gt; SummonerGroups)
+    {
+        var resultlist = new List&lt;SummonerData&gt;();
+
+        while (resultlist.Count &lt; _summonerData.Count())
+        {
+            var iteration = 0;
+            foreach (var group in _groups)
+            {
+                for (var i = 0; i &lt; group.Number; i++)
+                {
+                    if (SummonerGroups[iteration].Any())
+                    {
+                        resultlist.Add(SummonerGroups[iteration].First());
+                        SummonerGroups[iteration].Remove(SummonerGroups[iteration].First());
+                    }
+                }
+                iteration++;
+            }
+        }
+
+        return resultlist;
+    }
+    private static List&lt;List&lt;SummonerData&gt;&gt; DivideSummoner(IEnumerable&lt;SummonerData&gt; Summoners)
+    {
+        var resultList = new List&lt;List&lt;SummonerData&gt;&gt;();
+        var i = 0;
+
+        foreach (var group in _groups)
+        {
+            resultList.Add(new List&lt;SummonerData&gt;());
+            foreach (var summoner in Summoners)
+            {
+                if (summoner.Division &gt;= group.From && summoner.Division &lt;= group.To)
+                    resultList[i].Add(summoner);
+            }
+            i++;
+        }
+        return resultList;
+
+    }
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script type="text/javascript">
+            $('#navbar ul li a').click(function (e) {
+                $('.active').removeClass('active').addClass('sliding-middle-out');
+                var $this = $(this);
+                if(!$this.hasClass('active'))
+                {
+                    $this.addClass('active');
+                    $this.removeClass('sliding-middle-out');
+                }
+                e.preventDefault();
+            });
+        </script>
+
+        <script src="js/loadpage.js"></script>
+    </body>
+</html>

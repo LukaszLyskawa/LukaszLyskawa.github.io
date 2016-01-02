@@ -1,0 +1,83 @@
+<div class="jumbotron">
+                <h1>Team Randomizer</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <h3>Technologie:</h3>
+                    <h2>
+                        <ul class="list-inline">
+                            <li>C#</li>
+                            <li>WPF</li>
+                            <li>MVVM</li>
+                        </ul>
+                    </h2>
+                </div>
+                <div class="row" style="padding: 10px;">
+                    <div class="col-md-6" style="padding: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                    <div class="col-md-6" style="padding: 10px;"><img class="img-responsive center-block" style="max-height: 400px;" src="img/placeholder.jpg"></div>
+                    <div class="col-md-8 col-md-offset-2" style="text-align: left; padding: 10px;">
+                    <pre>
+                        <code class="c#" style="max-height: 500px;">
+public static class Complex
+{
+    private static IEnumerable&lt;GroupSetting&gt; _groups;
+    private static IEnumerable&lt;SummonerData&gt; _summonerData;
+    public async static Task&lt;IEnumerable&lt;SummonerData&gt;&gt; Shuffle(
+        IEnumerable&lt;SummonerData&gt; Summoners, 
+        IEnumerable&lt;GroupSetting&gt; Groups, TimeSpan timeout)
+    {
+        _summonerData = Summoners;
+        _groups = Groups;
+        Summoners = (await Simple.ShuffleListAsync(Summoners, timeout))
+                                 .OfType&lt;SummonerData&gt;()
+                                 .ToList();
+        return CreateTeams(DivideSummoner(Summoners));
+    }
+
+    private static IEnumerable&lt;SummonerData&gt; CreateTeams(List&lt;List&lt;SummonerData&gt;&gt; SummonerGroups)
+    {
+        var resultlist = new List&lt;SummonerData&gt;();
+
+        while (resultlist.Count &lt; _summonerData.Count())
+        {
+            var iteration = 0;
+            foreach (var group in _groups)
+            {
+                for (var i = 0; i &lt; group.Number; i++)
+                {
+                    if (SummonerGroups[iteration].Any())
+                    {
+                        resultlist.Add(SummonerGroups[iteration].First());
+                        SummonerGroups[iteration].Remove(SummonerGroups[iteration].First());
+                    }
+                }
+                iteration++;
+            }
+        }
+
+        return resultlist;
+    }
+    private static List&lt;List&lt;SummonerData&gt;&gt; DivideSummoner(IEnumerable&lt;SummonerData&gt; Summoners)
+    {
+        var resultList = new List&lt;List&lt;SummonerData&gt;&gt;();
+        var i = 0;
+
+        foreach (var group in _groups)
+        {
+            resultList.Add(new List&lt;SummonerData&gt;());
+            foreach (var summoner in Summoners)
+            {
+                if (summoner.Division &gt;= group.From && summoner.Division &lt;= group.To)
+                    resultList[i].Add(summoner);
+            }
+            i++;
+        }
+        return resultList;
+
+    }
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
