@@ -8,16 +8,19 @@ function navigationinit()
             $('pre code').each(function(i, block) {
                 hljs.highlightBlock(block);
             });
+            window.location.hash="projects";
         }});
     });
     $("#certificates").mouseup(function(){
         $.ajax({url: "Certyfikaty.html", success: function(result){
             $("#content").html(result);
+            window.location.hash="certificates";
         }});
     });
     $("#contact").mouseup(function(){
         $.ajax({url: "Kontakt.html", success: function(result){
             $("#content").html(result);
+            window.location.hash="contact";
         }});
     });
 }
