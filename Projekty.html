@@ -106,7 +106,124 @@
                     </div>
                     <div class="col-md-6" style="padding: 10px;height:400px;"><img class="gallery" id="GallerySystemLekarski" src="img/gallery/SysLek/1.png"></div>
                     <div class="col-md-8 col-md-offset-2" style="text-align: left; padding: 10px;">
-                        
+                        <pre>
+                            <code class="c#" style="max-height: 500px;">
+namespace LekarzCore.ViewModels
+{
+    public class ShellViewModel : Conductor&lt;IScreen&gt;.Collection.OneActive, IHandle&lt;Navigation&gt;, IHandle&lt;string&gt;
+    {
+
+        private readonly IEventAggregator _ev;
+        private readonly IWindowManager _wm;
+        private MainViewModel _mainViewModel;
+
+        ...
+        
+        public ShellViewModel()
+        {
+            _ev = IoC.Get&lt;IEventAggregator&gt;("eventAggregator");
+            _ev.Subscribe(this);
+            _wm = IoC.Get&lt;IWindowManager&gt;("windowManager");
+        }
+
+        protected override void OnViewLoaded(object view)
+        {
+            base.OnViewLoaded(view);
+            _mainViewModel = IoC.Get&lt;MainViewModel&gt;("mainViewModel");
+            ActivateItem(new LoginViewModel());
+        }
+
+
+        public void Handle(Navigation message)
+        {
+            if (message.Page == NagivationPages.Main)
+            {
+                ActivateItem(_mainViewModel);
+            }
+            if (message.Page == NagivationPages.Details)
+            {
+                ActivateItem(new AppointmentViewModel(int.Parse(message.Args[0]),int.Parse(message.Args[1])));
+            }
+        }
+
+        public void Handle(string message)
+        {
+            Username = message;
+        }
+
+        public void Logout()
+        {
+            IoC.Get&lt;UserData&gt;("UserData").DoctorId = 0;
+            IoC.Get&lt;UserData&gt;("UserData").UserName = "";
+            IoC.Get&lt;UserData&gt;("UserData").Password = "";
+            ActivateItem(new LoginViewModel());
+        }
+    }
+}
+
+
+namespace LekarzCore.ViewModels
+{
+    public class MainViewModel: Screen
+    {
+        private readonly IEventAggregator _ev;
+
+        private CancellationTokenSource _cancellationTokenSource;
+
+       ...
+
+        public MainViewModel()
+        {
+            _ev = IoC.Get&lt;IEventAggregator&gt;("eventAggregator");            
+        }
+
+        public void ViewDetails(Appointment sender)
+        {
+            _ev.PublishOnUIThread(new Navigation(NagivationPages.Details, new []{ sender.Id.ToString(), sender.PatientId.ToString() }));
+        }
+
+        protected override void OnActivate()
+        {
+            Appointments=new BindableCollection&lt;Appointment&gt;();
+            _cancellationTokenSource = new CancellationTokenSource();
+            PeriodicUpdateDataAsync(TimeSpan.FromSeconds(30), _cancellationTokenSource.Token);
+            base.OnActivate();
+            
+        }
+
+        protected override void OnDeactivate(bool close)
+        {
+            _cancellationTokenSource.Cancel();
+            base.OnDeactivate(close);
+        }
+
+
+        public async Task PeriodicUpdateDataAsync(TimeSpan interval, CancellationToken token)
+        {
+            while (!token.IsCancellationRequested)
+            {
+                Loading = true;
+                var client = new LekarzServiceClient();
+                client.ClientCredentials.UserName.UserName = IoC.Get&lt;UserData&gt;("UserData").UserName;
+                client.ClientCredentials.UserName.Password = IoC.Get&lt;UserData&gt;("UserData").Password;
+                var result = await client.GetAppointmentsAsync(IoC.Get&lt;UserData&gt;("UserData").ClinicId, IoC.Get&lt;UserData&gt;("UserData").DoctorId);
+
+                Appointments = new BindableCollection&lt;Appointment&gt;(result);
+
+                client.Close();
+                Loading = false;
+
+                if (interval &gt; TimeSpan.Zero)
+                {
+                    await Task.Delay(interval, token);
+                }
+            }
+           
+        }
+    }
+}
+                            </code>
+                        </pre>
                     </div>
                 </div>
             </div>
@@ -130,6 +247,7 @@
                 <div class="row" style="padding: 10px;">
                     <div class="col-md-6" style="padding: 10px;">
                     <p style="text-align: left;">Prosta zręcznościowa gra na telefon Windows Phone. Projekt realizowany na praktykach w firmie Whalla Labs w 2-osobowym zespole programistów. Zadaniem było stworzenie wersji gry na telefon Windows Phone, uwzględniając pierwowzór na platformę Android o tej samej nazwie. Rozgrywka została rozbudowana o dodatkowe stopnie trudności. Aplikacja została zaprojektowana jako projekt Universal Apps, z możliwością stworzenia wersji na tablety i Windows (Metro), która została dokończona przez zespół Whalla Labs.</p></div>
+                    <div class="col-md-6" style="padding: 10px;height:400px;"><img class="gallery" id="GalleryMagicSquareRush" src="img/gallery/MSR/1.png"></div>
                     <div class="col-md-8 col-md-offset-2" style="text-align: left; padding: 10px;">    
                     </div>
                 </div>

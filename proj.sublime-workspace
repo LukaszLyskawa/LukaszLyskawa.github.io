@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"max-",
+				"max-width"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
 				"arrow",
 				"glyphicon-arrow-up	 bootstrap.min.css"
 			],
@@ -87,7 +95,7 @@
 			"file": "Projekty.html",
 			"settings":
 			{
-				"buffer_size": 10718,
+				"buffer_size": 16295,
 				"line_ending": "Windows"
 			}
 		},
@@ -105,6 +113,23 @@
 			{
 				"buffer_size": 3596,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/gallery.css",
+			"settings":
+			{
+				"buffer_size": 200,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "namespace LekarzCore.ViewModels\n{\n    public class MainViewModel: Screen\n    {\n        private readonly IEventAggregator _ev;\n\n        private CancellationTokenSource _cancellationTokenSource;\n\n        private BindableCollection&lt;Appointment&gt; _appointments;\n\n        public BindableCollection&lt;Appointment&gt; Appointments\n        {\n            get { return _appointments; }\n            private set\n            {\n                _appointments = value;\n                NotifyOfPropertyChange();\n            }\n        }\n\n        private bool _loading;\n\n        public bool Loading\n        {\n            get\n            {\n                return _loading;\n            }\n            private set\n            {\n                _loading = value;\n                NotifyOfPropertyChange();\n            }\n        }\n\n        public MainViewModel()\n        {\n            _ev = IoC.Get&lt;IEventAggregator&gt;(\"eventAggregator\");            \n        }\n\n        public void ViewDetails(Appointment sender)\n        {\n\n            _ev.PublishOnUIThread(new Navigation(NagivationPages.Details, new []{ sender.Id.ToString(), sender.PatientId.ToString() }));\n        }\n\n        protected override void OnActivate()\n        {\n            Appointments=new BindableCollection&lt;Appointment&gt;();\n            _cancellationTokenSource = new CancellationTokenSource();\n            PeriodicUpdateDataAsync(TimeSpan.FromSeconds(30), _cancellationTokenSource.Token);\n            base.OnActivate();\n            \n        }\n\n        protected override void OnDeactivate(bool close)\n        {\n            _cancellationTokenSource.Cancel();\n            base.OnDeactivate(close);\n        }\n\n\n        public async Task PeriodicUpdateDataAsync(TimeSpan interval, CancellationToken token)\n        {\n            while (!token.IsCancellationRequested)\n            {\n                Loading = true;\n                var client = new LekarzServiceClient();\n                client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;\n                client.ClientCredentials.UserName.UserName = IoC.Get&lt;UserData&gt;(\"UserData\").UserName;\n                client.ClientCredentials.UserName.Password = IoC.Get&lt;UserData&gt;(\"UserData\").Password;\n                var result = await client.GetAppointmentsAsync(IoC.Get&lt;UserData&gt;(\"UserData\").ClinicId, IoC.Get&lt;UserData&gt;(\"UserData\").DoctorId);\n\n                Appointments = new BindableCollection&lt;Appointment&gt;(result);\n\n                client.Close();\n                Loading = false;\n\n                if (interval &gt; TimeSpan.Zero)\n                {\n                    await Task.Delay(interval, token);\n                }\n            }\n           \n        }\n    }\n}",
+			"settings":
+			{
+				"buffer_size": 2765,
+				"line_ending": "Windows",
+				"name": "namespace LekarzCore.ViewModels"
 			}
 		}
 	],
@@ -167,11 +192,14 @@
 	[
 		"/C/Users/Lukasz/Desktop/GitHub/LukaszLyskawa.github.io",
 		"/C/Users/Lukasz/Desktop/GitHub/LukaszLyskawa.github.io/css",
-		"/C/Users/Lukasz/Desktop/GitHub/LukaszLyskawa.github.io/img/gallery/TeamRandomizer",
+		"/C/Users/Lukasz/Desktop/GitHub/LukaszLyskawa.github.io/img/gallery",
 		"/C/Users/Lukasz/Desktop/GitHub/LukaszLyskawa.github.io/js"
 	],
 	"file_history":
 	[
+		"/C/Users/Lukasz/Desktop/zzz",
+		"/C/Users/Lukasz/Desktop/GitHub/LukaszLyskawa.github.io/css/gallery.css",
+		"/C/Users/Lukasz/Desktop/GitHub/LukaszLyskawa.github.io/css/bootstrap.css",
 		"/C/Users/Lukasz/Desktop/GitHub/LukaszLyskawa.github.io/Kontakt.html",
 		"/C/Users/Lukasz/Desktop/GitHub/LukaszLyskawa.github.io/Certyfikaty.html",
 		"/C/Users/Lukasz/Desktop/GitHub/LukaszLyskawa.github.io/js/scrollInto.js",
@@ -184,13 +212,15 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
 		"height": 90.0,
 		"where_history":
 		[
+			"<current file>",
+			""
 		]
 	},
 	"find_state":
@@ -198,6 +228,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			">",
+			"<",
+			">",
+			"<",
+			"img",
+			">",
+			"<",
 			"3",
 			"img",
 			"gallery",
@@ -211,6 +248,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"&gt;",
+			"&lt;",
+			"&gt;",
+			"&lt;"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -230,15 +271,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10718,
+						"buffer_size": 16295,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9582,
-								8933
+								7080,
+								7080
 							]
 						],
 						"settings":
@@ -291,10 +332,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1440.0,
+						"translation.y": 1223.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -310,8 +351,8 @@
 						"selection":
 						[
 							[
-								302,
-								302
+								1190,
+								1190
 							]
 						],
 						"settings":
@@ -333,10 +374,80 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+						"translation.y": 94.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "css/gallery.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								200,
+								200
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2765,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								2765
+							]
+						],
+						"settings":
+						{
+							"auto_name": "namespace LekarzCore.ViewModels",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 364.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -385,7 +496,7 @@
 	"project": "proj.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
