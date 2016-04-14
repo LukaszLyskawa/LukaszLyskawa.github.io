@@ -7,6 +7,7 @@ function InitGallery()
     galleryiter=[];
   	galleryiter.push(1);
   }
+  console.log('Gallery Initialized');
 }
 function StartGallery()
 {
