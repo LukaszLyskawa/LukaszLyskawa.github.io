@@ -16,22 +16,39 @@
         <script src="./js/bootstrap.min.js"></script>
         <link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/vs.min.css' rel='stylesheet'/>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
-        <script src="./js/ajaxnavigation.js?v=6"></script>
-        <script>
-            $(document).ready(function(){
-                navigationinit();       
-            });
-            
+        <script src="./js/ajaxnavigation.js?v=7"></script>
+        <script src="./js/localization.js?v=2"></script>
+        <script type="text/javascript">
+            var localization;
+            var currentLocale="pl";   
         </script>
+        <script defer>
+            $(document).ready(function(){
+                navigationinit();
+                $("#translate").mouseup(function () {
+                       if(currentLocale==="pl"){
+                            Localize("en_locale.json");
+                            currentLocale="en";
+                       }
+                       else if(currentLocale==="en"){
+                            Localize("pl_locale.json");
+                            currentLocale="pl";
+                       }
+                });
+                Localize("pl_locale.json");  
+            });
+        </script>
+        
     </head>
     <body>
         <div class="navbar-fixed-top container-fluid header noselect" style="background-color: #fff">
             <ul class="nav navbar-nav navbar-collapse collapse">
                 <li><a href="https://pl.linkedin.com/in/łukasz-łyskawa-569021b3">
                         <img width="30" height="30" class="img-responsive" src="img/LinkedIn-Google-Plus-Profile-Pic-01.png"></a></li>
-                <li><a href="doc/Łukasz Łyskawa cv.pdf"><img  height="30" src="img/cv-pdf.png"></a></li>
-                <li><a href="doc/Łukasz Łyskawa cv.docx"><img  height="30" src="img/cv-doc.png"></a></li>
+                <li><a class="local_PDF"><img  height="30" src="img/cv-pdf.png"></a></li>
+                <li><a class="local_DOCX"><img  height="30" src="img/cv-doc.png"></a></li>
                 <li><a href="https://github.com/LukaszLyskawa"><img width="30" height="30" src="img/GitHub-Mark.png"></a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right black">
                 <li><a href="mailto:lukasz@lyskawa.pl"><span class="glyphicon glyphicon-envelope">&nbsp;</span>lukasz@lyskawa.pl</a></li>
@@ -42,9 +59,9 @@
         <nav class="navbar navbar-fixed-top navbar-default noselect">
             <div class="container">
                 <div class="navbar-header">
-                    <div class="navbar-brand">
-                        Łukasz Łyskawa
-                        <div class="navbar-collapse collapse">Programista C#</div>
+                    <div class="navbar-brand" id="local_Name">
+                        
+                        
                     </div>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
@@ -56,9 +73,12 @@
 
               <div id="navbar" class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                  <li><a id="projects" class="sliding-middle-out">Projekty</a></li>
-                  <li><a id="certificates" class="sliding-middle-out">Certyfikaty</a></li>
-                  <li><a id="contact" class="sliding-middle-out">Kontakt</a></li>
+                  <li><a id="projects" class="sliding-middle-out"></a></li>
+                  <li><a id="certificates" class="sliding-middle-out"></a></li>
+                  <li><a id="contact" class="sliding-middle-out"></a></li>
+                  <li><a id="translate" class="sliding-middle-out">Translate</a></li>
+
+
                 </ul>
               </div>
           </div>
@@ -66,8 +86,14 @@
         <div class="content" id="content"></div>
         <script type="text/javascript">
             $('#navbar ul li a').click(function (e) {
-                $('.active').removeClass('active').addClass('sliding-middle-out');
                 var $this = $(this);
+                if($this.is('#translate'))
+                {
+                    return;
+                }
+
+                $('.active').removeClass('active').addClass('sliding-middle-out');
+                
                 if(!$this.hasClass('active'))
                 {
                     $this.addClass('active');

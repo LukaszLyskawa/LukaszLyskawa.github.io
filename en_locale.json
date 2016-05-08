@@ -1,0 +1,19 @@
+{
+  "Name": "Lucas Łyskawa<div class=\"navbar-collapse collapse\">C# Programmer</div>",
+  "Navigation":{
+    "Projects": "Projects",
+    "Certificates": "Certificates",
+    "Contact": "Contact"
+  },
+  "Projects":[
+    "<p style=\"text-align: left;\">System consists of a database, two WPF applications, an ASP.NET MVC website and two services (WCF and RESTful) which allow for communication between the apps and the database.The projects was created in Scrum framework with three other developers and ended up as our engineer degree project. I was responsible for the WCF Web service and the Doctor's WPF application, that handled:<ul style=\"text-align: left;\"><li>Displaying the state of registered patients' queue for currently logged in user/doctor</li><li>Saving and printing visit's details</li><li>Browsing patient's medical history</li><li>Filling out and printing prescriptions</li></ul></p>",
+    "<p style=\"text-align: left;\">Easy arcade game created for Windows Phone 8.1. The project was managed by Whalla Labs and developed by a team of two programmers and one graphic designer. We were assigned by our mentors the task of creating a new version of the existing Android game named \"Magic Square Rush\". We also had the freedom to improve it, which resulted in implementing additional gameplay difficulties. Although it is a Universal Apps project,  our team was only responsible for the 'Windows Phone' version of the game.</p></div>",
+    "<p style=\"text-align: left;\">Application created for Project Sin social club for the purpose of easy and unbiased creation of random and fair skill-based teams for a game. Contestants registered their participation via Google Forms. The application is reading data with Google Api and creates parametrized teams while using random data provided by Random.org. Full code is available on my GitHub profile.</p>"
+  ],
+  "Docs":{
+    "PDF": "doc/Łukasz Łyskawa cv en.pdf",
+    "DOCX": "doc/Łukasz Łyskawa cv en.docx"
+  },
+  "Bio":
+     "<p>I have started my programming education with Pascal. After grasping the essentials, C language sparked my interest as a better structuralized language that became more natural to me. As years flew by I gained basic Object Oriented Programming knowledge in C++ and Java at the same time creating basic user interfaces.</p><p>While studying at Collegium Da Vinci I discovered interesting aspects involving low-level programming including assembly and high-level programming with C# and Java focused on mobile systems (Windows Phone and Android).</p><p>Acquiring the knowledge of Windows Phone native application structure and view building using XAML, allowed me to discover that WPF is very similar and I gained interest in developing WPF applications. My professors, being such great specialists and teachers, passed on their knowledge of architectural patterns such as MVVM and MVP and shown me the applications of singletons and containers, unearthing a different aspect of programming style which is S.O.L.I.D.</p><p> Our student group, while focused on learning teamwork and practical skills, formed teams with varying programming skills and interests to tackle problems. A couple of times, we competed in Poznań Game Jam, however without being much successful.</p>"
+}

@@ -1,0 +1,19 @@
+{
+  "Name": "Łukasz Łyskawa<div class=\"navbar-collapse collapse\">Programista C#</div>",
+  "Navigation":{
+    "Projects": "Projekty",
+    "Certificates": "Certyfikaty",
+    "Contact": "Kontakt"
+  },
+  "Projects":[
+    "<p style=\"text-align: left;\">System składa się z bazy danych, dwóch aplikacji WPF, strony internetowej ASP.NET, oraz serwisu WCF i dwóch REST odpowiedzialnych za komunikację między aplikacjami i bazą. Napisany wspólnie w systemie SCRUM z trzema innymi osobami jako praca dyplomowa. Byłem odpowiedzialny za serwis WCF oraz aplikację wspomagającą pracę lekarza, która obsługiwała:<ul style=\"text-align: left;\"><li>Wyświetlanie aktualnego stanu kolejki pacjentów zarejestrowanych do zalogowanego lekarza</li><li>Zapisywanie i drukowanie szczegółów wizyty</li><li>Przeglądanie historii choroby umówionego pacjenta</li><li>Wypisywanie i drukowanie recepty</li></ul></p>",
+    "<p style=\"text-align: left;\">Prosta zręcznościowa gra na telefon Windows Phone. Projekt realizowany na praktykach w firmie Whalla Labs w 2-osobowym zespole programistów. Zadaniem było stworzenie wersji gry na telefon Windows Phone, uwzględniając pierwowzór na platformę Android o tej samej nazwie. Rozgrywka została rozbudowana o dodatkowe stopnie trudności. Aplikacja została zaprojektowana jako projekt Universal Apps, z możliwością stworzenia wersji na tablety i Windows (Metro), która została dokończona przez zespół Whalla Labs.</p></div>",
+    "<p style=\"text-align: left;\">Aplikacja stworzona na potrzeby portalu Project Sin do tworzenia losowych drużyn. Chętni zgłaszali swoje uczestwictwo poprzez formularz Google Forms. Program odczytuje dane za pośrednictwem Google Api i tworzy n-osobowe drużyny według ustawień korzystając z losowego ciągu pobieranego ze strony Random.org. Pełny kod dostępny na GitHubie.</p>"
+  ],
+  "Docs":{
+    "PDF": "doc/Łukasz Łyskawa cv.pdf",
+    "DOCX": "doc/Łukasz Łyskawa cv.docx"
+  },    
+  "Bio":
+     "<p>Moją naukę programowania rozpocząłem w szkole średniej od języka Pascal (2007 r.). Dopiero następny język C rozbudził moje zainteresowanie tą dyscypliną Informatyki. Przez kolejne lata uzyskiwałem podstawowe umiejętności programowania w językach Java i C++, gdzie rozpocząłem pisanie programów z warstwą graficzną (Windows Forms). </p><p>Po rozpoczęciu studiów w CDV (byłe WSNHiD) poznałem ciekawsze zaganienia związane z niskopoziomowym programowaniem w C i asemblerze oraz wysokopoziomowym – C# i Java ukierunkowanych na platformy mobilne (Windows Phone i Android).</p><p>We własnym zakresie odkryłem podobieństwo w WPF i technologii Windows Phone, co pozwoliło mi łatwo sobie większość informacji i zauważyć różnice między nimi.</p><p>Wykładowcy będący świetnymi praktykami przyswoili i zachęcili mnie do poznawania wzorców architektonicznych takich jak MVVM i MVP oraz pokazali takie struktury jak Singleton i kontenery odkrywając odmienne spojrzenie na sposób programowania jakim jest S.O.L.I.D.</p><p>Szkoła kładła duży nacisk na pracę w grupie i umiejętności praktyczne, zachęcając nas do tworzenia zespołów, w skład których wchodziły osoby z różnym stopniem umiejętności w programowaniu, ale też projektowania, czy grafiki.</p><p>Zaowocowało to między innymi powstaniu zespołów działających poza zajęciami szkolnymi i przez dwa lata z rzędu brałem udział w Poznań Game Jam, chociaż bez większych sukcesów.</p>"
+}

@@ -24,6 +24,7 @@ function navigationinit() {
                     scrollInto("header", 0, 1000);
                 });
                 window.location.hash = "projects";
+                Localize();
             }
         });
     });
@@ -33,6 +34,7 @@ function navigationinit() {
             success: function(result) {
                 $("#content").html(result);
                 window.location.hash = "certificates";
+                Localize();
             }
         });
     });
@@ -42,6 +44,7 @@ function navigationinit() {
             success: function(result) {
                 $("#content").html(result);
                 window.location.hash = "contact";
+                Localize();
             }
         });
     });
