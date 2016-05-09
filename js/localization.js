@@ -1,8 +1,7 @@
 function Localize(file) {
 	if(file==null)
 	{
-		console.log('called');
-		file=currentLocale+"_locale.json"
+		file=currentLocale+"_locale.json";
 	}
     $.getJSON(file, function(json) {
         localization = json;
@@ -13,7 +12,6 @@ function Localize(file) {
 
         $(".local_PDF").prop("href",json.Docs.PDF);
         $(".local_DOCX").prop("href",json.Docs.DOCX);
-        console.log(json.Docs);
 
 	    $("#local_Certificates").html(localization.Navigation.Certificates);
 
