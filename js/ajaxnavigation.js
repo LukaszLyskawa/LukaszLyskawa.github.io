@@ -77,9 +77,6 @@ function checkForFragmentId() {
                 url: "Projekty.html",
                 success: function(result) {
                     $("#content").html(result);
-
-
-
                     $('pre code').each(function(i, block) {
                         hljs.highlightBlock(block);
                     });
@@ -119,8 +116,6 @@ function checkForFragmentId() {
             url: "Projekty.html",
             success: function(result) {
                 $("#content").html(result);
-
-
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });
@@ -129,15 +124,12 @@ function checkForFragmentId() {
                 });
                 $("#nav-p1").click(function() {
                     scrollInto("#SystemLekarski", -100, 1000);
-                    //window.location.hash = "#SystemLekarski";
                 });
                 $("#nav-p2").click(function() {
                     scrollInto("#MagicSquareRush", -100, 1000);
-                    //window.location.hash = "#MagicSquareRush";
                 });
                 $("#nav-p3").click(function() {
                     scrollInto("#TeamRandomizer", -100, 1000);
-                    //window.location.hash = "#TeamRandomizer";
                 });
                 $(".navbutton").click(function () {
                     scrollInto("header",0,1000);
