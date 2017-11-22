@@ -79,6 +79,10 @@ body {
   padding: 0px;
   text-align: center;
 }
+.header-shadow>a>.jumbotron{
+    background-color: #e91e63;
+    color: white;
+}
 section>.jumbotron {
     background-color: #0093c4;
 }
