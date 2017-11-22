@@ -34,6 +34,7 @@ header{
     vertical-align: middle;
     text-align: center;
     height: 125px;
+    background:#F5F5F6;
 }
 .header-shadow
 {
@@ -61,10 +62,9 @@ a.glyphicon{
     border-radius:50%;
     background-color: #e91e63;
     color: white;
-    transform: translateY(-40px);
+    transform: translateY(115px) translateX(-50px);
     font-size: 1.5em;
-    text-align: right;
-    margin-right: 200px;
+    float: right;
 }
 body {
   display: block;
@@ -81,8 +81,6 @@ body {
 }
 section>.jumbotron {
     background-color: #0093c4;
-    padding-top:0px;
-    padding-bottom:100px
 }
 .jumbotron{
     margin-bottom: 0px;
@@ -195,6 +193,10 @@ section>.jumbotron {
 .header>ul>li>a:hover{
     background:#4fc2f7;
 }
+.row{
+    margin-right:0px;
+    margin-left:0px;
+}
 .row-centered {
     text-align:center;
 }
@@ -215,7 +217,4 @@ color: #fff;  /*Sets the text hover color on navbar*/
 .container-fluid{
     padding-left: 0px;
     padding-right: 0px;
-}
-.header-inner>.row>div.col-md-4{
-    background-color: #fff;
 }
