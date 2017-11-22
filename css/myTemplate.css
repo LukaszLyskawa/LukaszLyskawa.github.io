@@ -12,7 +12,7 @@ header{
 
     margin: 0;
     padding: 0;
-    background: #009688;
+    background: #E1E2E1;
     background-size: cover;
     position: relative;
     min-width: 100%;
@@ -54,7 +54,12 @@ a{
     cursor: pointer;
 }
 a:hover{
-    color:#00b0f0;
+    color:#8bf6ff;
+}
+a.glyphicon{
+    padding:50px;
+    border-radius:50%;
+    background-color: #4fc2f7;
 }
 body {
   display: block;
@@ -86,7 +91,7 @@ body {
 .navbar-default
 {
     /*background-color:  #009688;*/
-    background-color:  #00b0f0;
+    background-color:  #0093c4;
     border:none;
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
