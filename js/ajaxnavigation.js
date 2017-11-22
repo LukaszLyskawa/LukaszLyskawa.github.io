@@ -8,6 +8,9 @@ function navigationinit() {
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });
+                $("#nav-p0").mouseup(function() {
+                    scrollInto("#RossmannFotowelt", -100, 1000);
+                });
                 $("#nav-p1").mouseup(function() {
                     scrollInto("#SystemLekarski", -100, 1000);
                     //window.location.hash = "#SystemLekarski";
@@ -84,6 +87,9 @@ function checkForFragmentId() {
                     $('pre code').each(function(i, block) {
                         hljs.highlightBlock(block);
                     });
+                    $("#nav-p0").mouseup(function() {
+                        scrollInto("#RossmannFotowelt", -100, 1000);
+                    });
                     $("#nav-p1").mouseup(function() {
                         scrollInto("#SystemLekarski", -100, 1000);
                         //window.location.hash = "#SystemLekarski";
@@ -121,6 +127,9 @@ function checkForFragmentId() {
 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
+                });
+                $("#nav-p0").mouseup(function() {
+                    scrollInto("#RossmannFotowelt", -100, 1000);
                 });
                 $("#nav-p1").mouseup(function() {
                     scrollInto("#SystemLekarski", -100, 1000);

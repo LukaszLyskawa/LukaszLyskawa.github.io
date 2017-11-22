@@ -92,6 +92,7 @@ section>.jumbotron {
 }
 .jumbotron-preview{
     padding: 20px;
+    text-align: center;
 }
 #topnavbar{
     margin:0;
@@ -203,6 +204,7 @@ section>.jumbotron {
 }
 .row-centered {
     text-align:center;
+    margin-bottom: 50px;
 }
 .col-centered {
     display:inline-block;
