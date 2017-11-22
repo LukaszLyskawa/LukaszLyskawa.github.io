@@ -1,6 +1,6 @@
 function navigationinit() {
     checkForFragmentId();
-    $("#projects").mouseup(function() {
+    $("#projects").click(function() {
         $.ajax({
             url: "Projekty.html",
             success: function(result) {
@@ -8,22 +8,19 @@ function navigationinit() {
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });
-                $("#nav-p0").mouseup(function() {
+                $("#nav-p0").click(function() {
                     scrollInto("#RossmannFotowelt", -100, 1000);
                 });
-                $("#nav-p1").mouseup(function() {
+                $("#nav-p1").click(function() {
                     scrollInto("#SystemLekarski", -100, 1000);
-                    //window.location.hash = "#SystemLekarski";
                 });
-                $("#nav-p2").mouseup(function() {
+                $("#nav-p2").click(function() {
                     scrollInto("#MagicSquareRush", -100, 1000);
-                    //window.location.hash = "#MagicSquareRush";
                 });
-                $("#nav-p3").mouseup(function() {
+                $("#nav-p3").click(function() {
                     scrollInto("#TeamRandomizer", -100, 1000);
-                    //window.location.hash = "#TeamRandomizer";
                 });
-                $(".navbutton").mouseup(function() {
+                $(".navbutton").click(function() {
                     scrollInto("header", 0, 1000);
                 });
                 window.location.hash = "projects";
@@ -31,7 +28,7 @@ function navigationinit() {
             }
         });
     });
-    $("#certificates").mouseup(function() {
+    $("#certificates").click(function() {
         $.ajax({
             url: "Certyfikaty.html",
             success: function(result) {
@@ -41,7 +38,7 @@ function navigationinit() {
             }
         });
     });
-    $("#contact").mouseup(function() {
+    $("#contact").click(function() {
         $.ajax({
             url: "Kontakt.html",
             success: function(result) {
@@ -51,7 +48,6 @@ function navigationinit() {
             }
         });
     });
-
 }
 
 function checkForFragmentId() {
@@ -87,22 +83,22 @@ function checkForFragmentId() {
                     $('pre code').each(function(i, block) {
                         hljs.highlightBlock(block);
                     });
-                    $("#nav-p0").mouseup(function() {
+                    $("#nav-p0").click(function() {
                         scrollInto("#RossmannFotowelt", -100, 1000);
                     });
-                    $("#nav-p1").mouseup(function() {
+                    $("#nav-p1").click(function() {
                         scrollInto("#SystemLekarski", -100, 1000);
                         //window.location.hash = "#SystemLekarski";
                     });
-                    $("#nav-p2").mouseup(function() {
+                    $("#nav-p2").click(function() {
                         scrollInto("#MagicSquareRush", -100, 1000);
                         //window.location.hash = "#MagicSquareRush";
                     });
-                    $("#nav-p3").mouseup(function() {
+                    $("#nav-p3").click(function() {
                         scrollInto("#TeamRandomizer", -100, 1000);
                         //window.location.hash = "#TeamRandomizer";
                     });
-                    $(".navbutton").mouseup(function() {
+                    $(".navbutton").click(function() {
                         scrollInto("header", 0, 1000);
                     });
 
@@ -128,22 +124,22 @@ function checkForFragmentId() {
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });
-                $("#nav-p0").mouseup(function() {
+                $("#nav-p0").click(function() {
                     scrollInto("#RossmannFotowelt", -100, 1000);
                 });
-                $("#nav-p1").mouseup(function() {
+                $("#nav-p1").click(function() {
                     scrollInto("#SystemLekarski", -100, 1000);
                     //window.location.hash = "#SystemLekarski";
                 });
-                $("#nav-p2").mouseup(function() {
+                $("#nav-p2").click(function() {
                     scrollInto("#MagicSquareRush", -100, 1000);
                     //window.location.hash = "#MagicSquareRush";
                 });
-                $("#nav-p3").mouseup(function() {
+                $("#nav-p3").click(function() {
                     scrollInto("#TeamRandomizer", -100, 1000);
                     //window.location.hash = "#TeamRandomizer";
                 });
-                $(".navbutton").mouseup(function () {
+                $(".navbutton").click(function () {
                     scrollInto("header",0,1000);
                 });
             }
