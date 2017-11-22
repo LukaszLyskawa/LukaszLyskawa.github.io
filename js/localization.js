@@ -18,9 +18,10 @@ function Localize(file) {
 	    $("#local_Contact").html(localization.Navigation.Contact);
         $("#local_Bio").html(localization.Bio);
         
-        $("#local_Proj1").html(localization.Projects[0]);
-        $("#local_Proj2").html(localization.Projects[1]);
-        $("#local_Proj3").html(localization.Projects[2]);
+        $("#local_Proj0").html(localization.Projects[0]);
+        $("#local_Proj1").html(localization.Projects[1]);
+        $("#local_Proj2").html(localization.Projects[2]);
+        $("#local_Proj3").html(localization.Projects[3]);
     });
 }
 

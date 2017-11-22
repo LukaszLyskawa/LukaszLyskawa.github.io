@@ -1,6 +1,6 @@
 <header>
     <div class="header-inner">
-        <div class="row">
+        <div class="row row-centered">
             <div class="col-md-6 col-centered">
                 <div class="header-shadow">
                     <a id="nav-p0">
@@ -128,7 +128,34 @@
                 </div>
                 <div class="row" style="padding: 10px;">
                     <div class="col-md-6" style="padding: 10px;" id="local_Proj0">
-                        <p style="text-align: left;">System składa się z bazy danych, dwóch aplikacji WPF, strony internetowej ASP.NET, oraz serwisu WCF i dwóch REST odpowiedzialnych za komunikację między aplikacjami i bazą. Napisany wspólnie w systemie SCRUM z trzema innymi osobami jako praca dyplomowa. Byłem odpowiedzialny za serwis WCF oraz aplikację wspomagającą pracę lekarza, która obsługiwała:<ul style="text-align: left;"><li>Wyświetlanie aktualnego stanu kolejki pacjentów zarejestrowanych do zalogowanego lekarza</li><li>Zapisywanie i drukowanie szczegółów wizyty</li><li>Przeglądanie historii choroby umówionego pacjenta</li><li>Wypisywanie i drukowanie recepty</li></ul></p>
+                        <p style="text-align: left;">Gdy zacząłem pracować w firmie di-support, podwykonawca który wcześniej tworzył tą aplikację w technologii Apache-Cordova, otrzymał zlecenie na napisanie jej w wersji natywnej.<br>
+Miałem szansę przez kilka miesięcy spróbować dogonić tą firmę, ale pomimo dobrych rezultatów nie wystarczyłoby czasu na dokończenie mojej wersji w wymaganym terminie.</p>
+
+<p style="text-align: left;">Po przyjęciu projektu przez naszą firmę, w zabiegu któym również brałem udział, zacząłem poznawać kod i architekturę aplikacji, oraz w między czasie sporządzałem raporty z code review kolejnych aktualizacji.
+<br style="text-align: left;">Dodatkowo moje zadanie polegało na znajdywaniu i zgłaszaniu jak największej ilości błędów w samym działaniu aplikacji.</p>
+
+<p style="text-align: left;">Moje prace wiązały się również z modyfikacją kodu w serwisie middleware, napisanym w PHP.</p>
+
+<p style="text-align: left;">Wraz z wersją 3.0.9, czyli ostatnią aktualizacją podwykonawcy, sam zająłem się naprawianiem i wprowadzaniem nowych funkcji.
+Do listy (w kolejnosci niechronologicznej) największych zmian należą:
+<ul style="text-align: left;"><li>Zamawianie kilku produktów na raz</li>
+<li>Zmiana sposobu renderowania, przygotowywania i wysyłania obrazów na nowy serwis middleware</li>
+<li>Skalowanie w dół ogromnych bitmap (wg konfiguracji produktu)</li>
+<li>Rozbudowanie ekranu photoprint o "multiformat"</li>
+<li>Rozszerzenie ekranu szukania sklepów (lista) o mapę</li>
+<li>Przebudowanie ekranów i nawigacji (zwiększanie niezależności od parametrów)<li>
+<li>Wprowadzenie kontroli wersji (blokowanie wybranych wersji)</li>
+<li>Dodanie obfuskacji kodu<li>
+<li>Zmiana struktury pliku konfiguracyjnego</li>
+<li>Drag &amp; Drop w edytorze Photobook</li>
+<li>Dodanie produktu Retro photo</li>
+<li>Tracking</li>
+<li>Dodanie i skonfigurowanie Continuous Integration (Gitlab CI)</li>
+<li>Aktualizowanie starych bibliotek (gradle, support, adobe editor)</li>
+<li>Wspieranie najnowszych systemów Android</li></ul>
+...</p>
+
+<p style="text-align: left;">Oprócz pracy związanej stricte z Androidem i aplikacją Fotowelt, miałem dużo innych obowiązków i zajęć, które wymienione są w opisie stanowiska na linked in.</p>
                     </div>
                 </div>
             </div>
@@ -302,8 +329,8 @@ namespace LekarzCore.ViewModels
                 <div class="row" style="padding: 10px;">
                     <div class="col-md-6" style="padding: 10px;" id="local_Proj2">
                     <p style="text-align: left;">Prosta zręcznościowa gra na telefon Windows Phone. Projekt realizowany na praktykach w firmie Whalla Labs w 2-osobowym zespole programistów. Zadaniem było stworzenie wersji gry na telefon Windows Phone, uwzględniając pierwowzór na platformę Android o tej samej nazwie. Rozgrywka została rozbudowana o dodatkowe stopnie trudności. Aplikacja została zaprojektowana jako projekt Universal Apps, z możliwością stworzenia wersji na tablety i Windows (Metro), która została dokończona przez zespół Whalla Labs.</p></div>
-                    </div>
                     <div class="col-md-6" style="padding: 10px;height:400px;"><img class="gallery" id="GalleryMagicSquareRush" src="img/gallery/MagicSquareRush/1.png"></div>
+                    </div>
                     <div class="col-md-8 col-md-offset-2" style="text-align: left; padding: 10px;">    
                     </div>
                 </div>
